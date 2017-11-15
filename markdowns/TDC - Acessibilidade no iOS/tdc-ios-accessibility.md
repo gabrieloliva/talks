@@ -1,9 +1,9 @@
 # [fit] Acessibilidade no
 # [fit] **iOS**
 
-
-
-Gabriel Oliva
+Gabriel Oliva 
+iOS Developer @ AppProva
+Co-organizador CocoaHeads BH
 @gabrieloliva_
 linkedin.com/in/gfpoliva/
 
@@ -26,7 +26,7 @@ linkedin.com/in/gfpoliva/
 <br/><br/><br/><br/><br/><br/><br/>
 http://who.int/disabilities/en/
 
-^ No mundo, mais de 1 bilhão de epssoas possuem algum tipo de deficiência
+^ No mundo, mais de 1 bilhão de pessoas possuem algum tipo de deficiência
 
 ---
 
@@ -39,14 +39,14 @@ http://who.int/disabilities/en/
 ![fit](assets/disability.jpg)
 
 ^ Mas no final do dia, acessibilidade não é sobre números. Acessibilidade é a maneira como essas pessoas interagem com o mundo. É sobre o poder transformador da tecnologia, permitindo pessoas utilizarem qualquer tipo de serviço e se incluirem em qualquer sociedade. 
-^ E não há nada mais gratificante que fazer parte desse poder transformador, ajudando essas pessoas.
+E não há nada mais gratificante que fazer parte desse poder transformador, ajudando essas pessoas.
 
 ---
 
 # [fit] Funcionalidades de acessibilidade 
 # [fit] no iOS
 
-^ A apple provê diversas funcionalidades para capacitar pessoas com algum tipo de deficiência a utilizar o sistema.
+^ E pra ajudar a a fazer parte desse poder transformador, a apple provê diversas funcionalidades para capacitar pessoas com algum tipo de deficiência a utilizar o sistema.
 
 ---
 
@@ -68,13 +68,13 @@ Cognitiva
 
 ![fit right 100%](assets/guided-access.png)
 
-^ O Guided Access permite que você desabilite funcionalidades como o toque em determinados locais da tela ou gestos, além de poder travar o app. Isso ajuda pessoas como autismo, por exemplo, a poder focar em um objetivo exclusivo
+^ O Guided Access permite que você desabilite funcionalidades como o toque em determinados locais da tela ou gestos, além de poder travar o app. Isso ajuda pessoas com autismo, por exemplo, a poder focar em um objetivo exclusivo
 
 ---
 # Guided Access
 <br/><br/><br/><br/>
 
-```swift
+```
 UIGuidedAccessRestrictionDelegate
 ```
 
@@ -309,6 +309,38 @@ var accessibilityFrame: CGRect
 ---
 
 ![fit center 35%](assets/stocks-accessibility.mov)
+
+---
+
+# [fit] Prática
+
+---
+
+![fit center 35%](assets/practice-1.mov)
+
+---
+
+```swift
+func applyAccessibility(_ recipe: Recipe) {
+    foodImageView.accessibilityTraits = UIAccessibilityTraitImage
+    foodImageView.accessibilityLabel = recipe.photoDescription
+
+    difficultyLabel.isAccessibilityElement = true
+    difficultyLabel.accessibilityTraits = UIAccessibilityTraitNone
+    difficultyLabel.accessibilityLabel = "Nível de dificuldade"
+
+    switch recipe.difficulty {
+    case .unknown:
+      difficultyLabel.accessibilityValue = "Desconhecido"
+    case .rating(let value):
+      difficultyLabel.accessibilityValue = "\(value)"
+    }
+  }
+```
+
+---
+
+![fit center 35%](assets/practice-2.mov)
 
 ---
 
